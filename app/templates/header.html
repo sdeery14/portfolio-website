@@ -1,0 +1,16 @@
+<header>
+    <div class="branding">
+        <h1><span class="site-title">{% block header_title %}My Portfolio{% endblock %}</span> - Sean Deery</h1>
+    </div>
+    <nav>
+        <a href="{{ url_for('main.home') }}">Home</a>
+        <a href="{{ url_for('main.projects') }}">Projects</a>
+        <a href="{{ url_for('main.about') }}">About</a>
+        <div class="social-icons">
+            <a href="https://github.com/sdeery14" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i>Github</a>
+            <a href="https://www.linkedin.com/in/sean-m-deery" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i>LinkedIn</a>
+            <a href="/static/sean-deery-resume.pdf" target="_blank" class="social-link" title="Resume"><i class="fas fa-file-alt"></i>Resume</a>
+            <a href="mailto:sdeery14@gmail.com" class="social-link" title="Email"><i class="fas fa-envelope"></i>Email</a>
+        </div>
+    </nav>
+</header>

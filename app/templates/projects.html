@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Projects - Portfolio{% endblock %}
+
+{% block header_title %}Projects{% endblock %}
+
+{% block content %}
+<section class="project-list">
+    <article class="project">
+        <h2>Topic and Sentiment Classification of News Articles</h2>
+        <p class="project-description">
+            This project focuses on classifying news articles into specific market topics and analyzing their sentiment. The aim is to help investors and companies understand market trends and public sentiment, which are crucial for making informed financial decisions.
+        </p>
+        <a class="project-link" href="https://github.com/sdeery14/financial-news-sentiment.git" target="_blank">View on GitHub</a>
+    </article>
+    
+    <article class="project">
+        <h2>Predictive Analysis of Customer Churn in the Telecom Sector</h2>
+        <p class="project-description">
+            Customer churn, where customers switch from one service provider to another, poses a significant challenge for telecommunications companies. This project leverages data science methodologies to analyze customer data, understand the underlying factors of churn, and develop predictive models to forecast potential churn. This enables telecom companies to implement targeted retention strategies and enhance customer loyalty.
+        </p>
+        <a class="project-link" href="https://github.com/sdeery14/telecom-customer-churn.git" target="_blank">View on GitHub</a>
+    </article>
+    
+    <article class="project">
+        <h2>Ski Resort Database System</h2>
+        <p class="project-description">
+            The Ski Resort Management System is designed to manage various operations at a ski resort, including tracking lift tickets, equipment rentals, and skier information. This project demonstrates the design and implementation of a functional database system, showcasing the integration of data analysis, modeling, and SQL scripting.
+        </p>
+        <a class="project-link" href="https://github.com/sdeery14/ski-resort-database.git" target="_blank">View on GitHub</a>
+    </article>
+
+    <!-- Add more projects as needed -->
+</section>
+{% endblock %}

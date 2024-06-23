@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - My Portfolio{% endblock %}
+
+{% block header_title %}Welcome to My Portfolio{% endblock %}
+
+{% block content %}
+<section class="home-content">
+    <p>Welcome to my portfolio site! Here you will find information about my data science projects, my background, and how to contact me. Feel free to explore the site and learn more about my work and skills.</p>
+    <p>You can check out my latest projects on the <a href="{{ url_for('main.projects') }}">Projects</a> page or learn more about me on the <a href="{{ url_for('main.about') }}">About</a> page.</p>
+</section>
+{% endblock %}

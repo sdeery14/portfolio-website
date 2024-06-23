@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}About Me - Sean Deery{% endblock %}
+
+{% block header_title %}About Me{% endblock %}
+
+{% block content %}
+<section class="about-me">
+    <img src="{{ url_for('static', filename='portfolio-picture.jpg') }}" alt="Sean Deery" class="profile-image">
+    <div class="about-content">
+        <h2>Sean Deery</h2>
+        <p class="bio">
+            I support clients with network and communication challenges and ensure their systems run smoothly. With thousands of support tickets under my belt and consistently receiving outstanding client feedback, I've developed a solid ability to troubleshoot and resolve issues effectively. My work spans from configuring equipment to leading installations on various platforms, always striving to make the technical aspects as seamless as possible for our clients.
+        </p>
+        <p class="bio">
+            I'm particularly fascinated by how data analysis and machine learning can uncover valuable insights. I earned my Master’s degree in Applied Data Science from Syracuse University in April 2024. This academic foundation complements my hands-on experience, particularly in exploring how data can drive better decision-making and operational efficiency. I enjoy diving into exploratory data analysis (EDA) and applying traditional machine learning methods to solve real-world problems. Recently, I've been exploring the potential of AI and Generative AI to enhance client solutions and boost operational efficiency. 
+        </p>
+        <p class="bio">
+            Collaborating with a skilled team, I tackle complex problems and stay up-to-date with the latest in cloud and data science technologies. Outside of work, I’m always eager to learn more about emerging trends in technology and how they can be applied to improve everyday operations. My goal is to make sure client operations run smoothly, and it's a challenge I look forward to every day.
+        </p>
+        </ul>
+        <h3>Contact Information</h3>
+        <p class="contact">
+            <strong>Location:</strong> Arlington, MA<br>
+            <strong>Email:</strong> <a href="mailto:sdeery14@gmail.com">sdeery14@gmail.com</a><br>
+            <strong>Phone:</strong> 617-682-9450
+        </p>
+        <div class="social-icons">
+            <a href="https://github.com/sdeery14" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/sean-m-deery" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="/static/sean-deery-resume.pdf" target="_blank" class="social-link" title="Resume"><i class="fas fa-file-alt"></i></a>
+            <a href="mailto:sdeery14@gmail.com" class="social-link" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
