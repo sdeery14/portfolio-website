@@ -85,7 +85,7 @@ main p {
 }
 
 /* About Me Section Styles */
-.about-me {
+.about-me, .project-detail {
     display: flex;
     flex-direction: column;
     align-items: center;

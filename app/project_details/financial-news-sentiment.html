@@ -1,0 +1,25 @@
+<p>Customer churn, where customers switch from one service provider to another, poses a significant challenge for telecommunications companies. This project leverages data science methodologies to analyze customer data, understand the underlying factors of churn, and develop predictive models to forecast potential churn. This enables telecom companies to implement targeted retention strategies and enhance customer loyalty.</p>
+<p><strong>Data:</strong> The dataset used in this project is sourced from <a href="https://www.kaggle.com/datasets/shilongzhuang/telecom-customer-churn-by-maven-analytics/data" target="_blank">Kaggle</a>. It contains 7043 rows and 38 columns, each representing a customer from a telecommunications company in California in Q2 2022. Key features include demographic information, service usage, and customer status (churn, stay, join).</p>
+<p><strong>Data Cleaning:</strong> Data cleaning involved removing irrelevant columns like Customer ID, converting zip codes to strings and handling leading zeros, and addressing missing values by assigning default values based on logical assumptions.</p>
+<p><strong>Exploratory Data Analysis:</strong> EDA was conducted to uncover relationships between customer attributes and their churn status. Key findings include:</p>
+<ul>
+    <li>Approximately 26.5% of customers churned in Q2.</li>
+    <li>Most churn is due to competitors, followed by dissatisfaction and service issues.</li>
+    <li>Analyzed the impact of geographic location and demographic factors on churn.</li>
+    <li>Explored how different service subscriptions and usage patterns relate to churn.</li>
+</ul>
+<p><strong>Modeling:</strong> Three machine learning models were used to predict customer churn:</p>
+<ul>
+    <li><strong>Logistic Regression:</strong> Simple and interpretable, providing probabilities for churn.</li>
+    <li><strong>Random Forest Classifier:</strong> Captures complex relationships and provides feature importance.</li>
+    <li><strong>Support Vector Machine (SVM):</strong> Finds the optimal hyperplane for classification, handling high-dimensional data well.</li>
+</ul>
+<p><strong>Conclusion:</strong> The analysis revealed that service quality and financial considerations are critical factors influencing customer churn. By adopting competitive pricing, enhancing service delivery, and fostering long-term customer relationships, telecom companies can significantly reduce churn rates.</p>
+<p><strong>How to Use:</strong> To replicate this project, follow these steps:</p>
+<ol>
+    <li>Clone the repository to Google Drive: <code>git clone https://github.com/sdeery14/TelecomCustomerChurn.git</code></li>
+    <li>Open the files 'Deery_EDA.ipynb' and 'Deery_Modeling.ipynb' in Google Colab.</li>
+    <li>Run the notebooks to see the analysis and modeling in action.</li>
+</ol>
+<p><strong>Results:</strong> The best-performing models were Random Forest and SVM, both achieving an accuracy of 84.6%. The choice of model may depend on whether the goal is to maximize overall accuracy or to correctly identify customers likely to churn.</p>
+<p><strong>License:</strong> This project is licensed under the MIT License - see the <a href="LICENSE" target="_blank">LICENSE</a> file for details.</p>
