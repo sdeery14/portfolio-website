@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - My Portfolio{% endblock %}
+
+{% block header_title %}Welcome to My Portfolio{% endblock %}
+
+{% block content %}
+<section class="project-detail">
+    <h1>Ski Resort Management System</h1>
+    
+    <h2>Project Overview</h2>
+    <p>The Ski Resort Management System is designed to manage various operations at a ski resort, including tracking lift tickets, equipment rentals, and skier information. This project demonstrates the design and implementation of a functional database system, showcasing the integration of data analysis, modeling, and SQL scripting.</p>
+    
+    <h2>Team Members</h2>
+    <ul>
+        <li><strong>Blake Tindol</strong></li>
+        <li><strong>Sean Deery</strong></li>
+        <li><strong>Christian Dobish</strong></li>
+        <li><strong>Leonard Lasek</strong></li>
+    </ul>
+    
+    <h2>Features</h2>
+    <ul>
+        <li><strong>Skier Management:</strong> Manage skier information and track their activities.</li>
+        <li><strong>Ticket Sales:</strong> Purchase and validate lift tickets.</li>
+        <li><strong>Equipment Rentals:</strong> Rent and manage ski equipment.</li>
+        <li><strong>Staff Operations:</strong> Support operations for office attendants and rental shop staff.</li>
+        <li><strong>Real-Time Data Views:</strong> Various views for monitoring resort activities and ticket validation at lift gates.</li>
+    </ul>
+    
+    <h2>Database Design</h2>
+    <p>The project involves multiple stages of database design:</p>
+    <ol>
+        <li><strong>Data Analysis:</strong> Identified entities, attributes, and relationships.</li>
+        <li><strong>Conceptual Data Model:</strong> High-level diagram representing the data model.</li>
+        <li><strong>Logical Data Model:</strong> Detailed schema including tables and relationships.</li>
+        <li><strong>External Data Model:</strong> Views and stored procedures for operations.</li>
+    </ol>
+    
+    <h3>Conceptual Model</h3>
+    <p><img src="{{ url_for('static', filename='ski-resort-database/conceptual-model.png') }}" alt="Conceptual Data Model" class="project-image"></p>
+    
+    <h3>Logical Model</h3>
+    <p><img src="{{ url_for('static', filename='ski-resort-database/logical-model.png') }}" alt="Logical Data Model" class="project-image"></p>
+    
+    <h3>External Data Model and Data Logic</h3>
+    <ul>
+        <li><strong>Views:</strong> For resort management, main office, and lift gate validation.</li>
+        <li><strong>Stored Procedures:</strong> For creating accounts, selling tickets and rentals, and managing rental operations.</li>
+    </ul>
+    
+    <h2>Installation</h2>
+    <p>To set up the project locally using an MSSQL database and Azure Data Studio, follow these steps:</p>
+    <ol>
+        <li><strong>Clone the repository:</strong></li>
+        <pre><code>git clone https://github.com/sdeery14/ski-resort-database.git</code></pre>
+        <li><strong>Navigate to the project directory:</strong></li>
+        <pre><code>cd ski-resort-management</code></pre>
+        <li><strong>Set up the database:</strong></li>
+        <p>Open Azure Data Studio and connect to your MSSQL server.</p>
+        <li><strong>Run the SQL scripts to set up the database schema and load initial data:</strong></li>
+        <p>Open the <code>ski-resort-internal-updown.sql</code> script in Azure Data Studio and execute it to set up the internal database schema and load the data.</p>
+        <p>Execute the <code>ski-resort-external-updown.sql</code> script to set up views and stored procedures:</p>
+    </ol>
+    
+    <h2>Usage</h2>
+    <p>Once the database is set up, you can perform various operations:</p>
+    <ol>
+        <li><strong>Selling Tickets and Rentals:</strong></li>
+        <p>Use the stored procedures <code>p_sell_ticket</code> and <code>p_sell_rental</code> to manage ticket and rental sales.</p>
+        <li><strong>Managing Rentals:</strong></li>
+        <p>Activate and deactivate rentals using <code>p_activate_rental</code> and <code>p_deactivate_rental</code>.</p>
+        <li><strong>Data Views:</strong></li>
+        <p>Access different views like <code>v_manager</code>, <code>v_attendant</code>, and <code>v_lift</code> for operational insights.</p>
+    </ol>
+    
+    <h2>Project Structure</h2>
+    <ul>
+        <li><code>ski-resort-external-updown.sql</code>: Contains SQL scripts for setting up the external side of the database database.</li>
+        <li><code>ski-resort-internal-updown.sql</code>: Contains SQL scripts for setting up the internal side of the database.</li>
+        <li><code>ski-resort-test-griffins.sql</code>: Contains SQL scripts to simulate a family visit.</li>
+        <li><code>ski-resort-database-report.docx</code>: Documentation including data models and project report.</li>
+    </ul>
+    
+    <h2>Contributing</h2>
+    <p>We welcome contributions to improve the Ski Resort Management System. Please follow these steps:</p>
+    <ol>
+        <li>Fork the repository.</li>
+        <li>Create a new branch:</li>
+        <pre><code>git checkout -b feature/your-feature-name</code></pre>
+        <li>Commit your changes:</li>
+        <pre><code>git commit -m "Add your message"</code></pre>
+        <li>Push to the branch:</li>
+        <pre><code>git push origin feature/your-feature-name</code></pre>
+        <li>Create a pull request.</li>
+    </ol>
+    
+    <h2>License</h2>
+    <p>This project is licensed under the MIT License - see the <a href="LICENSE" target="_blank">LICENSE</a> file for details.</p>
+    
+    <h2>Acknowledgements</h2>
+    <p>We would like to thank our course instructors and classmates for their support and collaboration throughout this project.</p>
+    
+    <p><a class="project-link" href="https://github.com/sdeery14/ski-resort-database" target="_blank">View on GitHub</a></p>
+</section>
+{% endblock %}

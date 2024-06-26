@@ -84,6 +84,11 @@ main p {
     background-color: #0056b3;
 }
 
+.project-image {
+    width: 80%; /* or any other size you prefer */
+    height: auto; /* ensures the aspect ratio is maintained */
+}
+
 /* About Me Section Styles */
 .about-me, .project-detail {
     display: flex;

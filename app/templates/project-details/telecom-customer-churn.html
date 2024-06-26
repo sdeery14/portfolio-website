@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - My Portfolio{% endblock %}
+
+{% block header_title %}Welcome to My Portfolio{% endblock %}
+
+{% block content %}
+<section class="project-detail">
+    <h1>Predictive Analysis of Customer Churn in the Telecom Sector</h1>
+
+    <h2>Introduction</h2>
+    <p>Customer churn, where customers switch from one service provider to another, poses a significant challenge for telecommunications companies. This project leverages data science methodologies to analyze customer data, understand the underlying factors of churn, and develop predictive models to forecast potential churn. This enables telecom companies to implement targeted retention strategies and enhance customer loyalty.</p>
+
+    <h2>Data</h2>
+    <p>The dataset used in this project is sourced from <a href="https://www.kaggle.com/datasets/shilongzhuang/telecom-customer-churn-by-maven-analytics/data" target="_blank">Kaggle</a>. It contains 7043 rows and 38 columns, each representing a customer from a telecommunications company in California in Q2 2022. Key features include demographic information, service usage, and customer status (churn, stay, join).</p>
+
+    <h2>Data Cleaning</h2>
+    <p>Data cleaning involved:</p>
+    <ul>
+        <li>Removing irrelevant columns like Customer ID.</li>
+        <li>Converting zip codes to strings and handling leading zeros.</li>
+        <li>Addressing missing values by assigning default values based on logical assumptions.</li>
+    </ul>
+
+    <h2>Feature Engineering</h2>
+    <p><strong>Location and Demographics:</strong><br>
+    Used K Means Clustering to derive location information from the customer latitude and longitude.</p>
+    <img src="{{ url_for('static', filename='telecom-customer-churn/lat-long-clusters.png') }}" alt="Lat Long Clusters" class="project-image">
+
+
+
+    <h2>Exploratory Data Analysis</h2>
+    <p>Approximately 26.5% of customers churned in Q2.</p>
+    <img src="{{ url_for('static', filename='telecom-customer-churn/customer-status.png') }}" alt="Customer Status" class="project-image">
+    <p>Service experience and financial factors are key determinants of churn decisions, with demographics like age and gender having minimal impact.</p>
+    <img src="{{ url_for('static', filename='telecom-customer-churn/churn-reasons.png') }}" alt="Churn Reasons" class="project-image">
+    <p>Long term contracts have a significantly lower churn rate than monthly contract.</p>
+    <img src="{{ url_for('static', filename='telecom-customer-churn/contract.png') }}" alt="Contract" class="project-image">
+    <p>Elevated monthly charges significantly contribute to higher churn rates, underscoring the need for competitive and flexible pricing strategies.</p>
+    <img src="{{ url_for('static', filename='telecom-customer-churn/monthly-charges.png') }}" alt="Monthly Charges" class="project-image">
+    <p>A correlation between total charges and lower churn rates indicates that customers with longer tenures are less likely to churn.</p>
+    <img src="{{ url_for('static', filename='telecom-customer-churn/total-charges.png') }}" alt="Total Charges" class="project-image">
+
+    <h2>Modeling</h2>
+    <p>Our approach included a preprocessing pipeline with one-hot encoding of categorical features, data scaling, and handling the imbalance in the target variable through down-sampling and up-sampling. This ensured that we evaluated the models on both balanced and unbalanced datasets to identify the most effective prediction model.</p>
+    <p>Three machine learning models were used to predict customer churn, and they were measured by accuracy on the test data.</p>
+    <ol>
+        <li><strong>Logistic Regression:</strong> 83.7% (unbalanced)</li>
+        <img src="{{ url_for('static', filename='telecom-customer-churn/logistic-reg-confusion-matrix.png') }}" alt="Logistic Regression Confusion Matrix" class="project-image">
+        <li><strong>Random Forest Classifier:</strong> 84.6% (unbalanced)</li>
+        <img src="{{ url_for('static', filename='telecom-customer-churn/random-forest-confusion-matrix.png') }}" alt="Random Forest Confusion Matrix" class="project-image">
+        <li><strong>Support Vector Machine (SVM):</strong> 84.6% (unbalanced)</li>
+        <img src="{{ url_for('static', filename='telecom-customer-churn/svm-confusion-matrix.png') }}" alt="SVM Confusion Matrix" class="project-image">
+    </ol>
+    <p>While both Random Forest and SVM demonstrated top performance, the choice of the best model depends on business needs. The unbalanced dataset yielded the highest accuracy, yet balanced datasets improved the prediction of churned customers. This trade-off suggests that businesses must decide between models based on their intervention strategies and the costs associated with incorrectly predicting churn.</p>
+
+    <h2>Conclusion</h2>
+    <p>The analysis revealed that service quality, pricing strategies, and customer engagement are key attributes in predicting churn, while demographic factors like age and gender are less significant.</p>
+    <p>Utilizing Logistic Regression, Random Forest Classification, and Support Vector Machine, the study achieved high accuracy in identifying potential churners.</p>
+    <p>These findings highlight the potential for telecom companies to adopt data-driven strategies that combine competitive pricing with exceptional service delivery and long-term customer engagement.</p>
+    <p>This study provides a practical guide for telecom providers to reduce churn rates and enhance customer loyalty through predictive analytics.</p>
+
+    <h2>How to Use</h2>
+    <p>To replicate this project, follow these steps:</p>
+    <ol>
+        <li>Clone the repository to Google Drive: <code>git clone https://github.com/sdeery14/telecom-customer-churn.git</code></li>
+        <li>Open the files 'Deery_EDA.ipynb' and 'Deery_Modeling.ipynb' in Google Colab.</li>
+        <li>Run the notebooks to see the analysis and modeling in action.</li>
+    </ol>
+
+    <h2>Results</h2>
+    <p>The best-performing models were Random Forest and SVM, both achieving an accuracy of 84.6%. The choice of model may depend on whether the goal is to maximize overall accuracy or to correctly identify customers likely to churn.</p>
+
+    <h2>License</h2>
+    <p>This project is licensed under the MIT License - see the <a href="LICENSE" target="_blank">LICENSE</a> file for details.</p>
+
+    <p><a class="project-link" href="https://github.com/sdeery14/telecom-customer-churn" target="_blank">View on GitHub</a></p>
+</section>
+{% endblock %}
