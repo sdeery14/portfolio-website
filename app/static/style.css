@@ -107,7 +107,7 @@ button:hover, .project-link:hover {
 }
 
 /* About Me Section Styles */
-.about-me, .project-detail {
+.about-me {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,6 +169,104 @@ button:hover, .project-link:hover {
 .social-link:hover {
     background-color: #0056b3;
 }
+
+
+
+
+/* Project Detail Page Styles */
+.project-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    margin: 2rem auto;
+    max-width: 800px;
+    background-color: #FFFFFF; /* White */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-detail h1, .project-detail h2 {
+    color: #0A3D62; /* Navy Blue */
+}
+
+.project-detail h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-detail h2 {
+    font-size: 2rem;
+    margin-top: 1.5rem;
+}
+
+.project-detail p {
+    font-size: 1.2rem;
+    color: #555555; /* Dark Gray */
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.project-detail ul, .project-detail ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-detail ul li, .project-detail ol li {
+    margin-bottom: 0.5rem;
+}
+
+/* Ensure pre and code blocks fit within the content area */
+.project-detail pre {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 1rem;
+    white-space: pre-wrap; /* Ensure long lines wrap within the container */
+    word-break: break-all; /* Break long words if necessary */
+    max-width: 100%; /* Ensure it doesn't exceed the container's width */
+    box-sizing: border-box; /* Include padding in the element's width */
+}
+
+.project-detail code {
+    background-color: #f0f0f0;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+
+.project-detail img.project-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
+}
+
+
+
+.project-detail a.project-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    color: #FFFFFF; /* White */
+    background-color: #3D9BF0; /* Sky Blue */
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.project-detail a.project-link:hover {
+    background-color: #0056b3;
+}
+
+
+
 
 /* Footer styles */
 footer {

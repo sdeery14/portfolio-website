@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
-{% block title %}Home - My Portfolio{% endblock %}
+{% block title %}Predictive Analysis of Customer Churn in the Telecom Sector{% endblock %}
 
-{% block header_title %}Welcome to My Portfolio{% endblock %}
+{% block header_title %}Predictive Analysis of Customer Churn in the Telecom Sector{% endblock %}
 
 {% block content %}
 <section class="project-detail">
@@ -23,8 +23,7 @@
     </ul>
 
     <h2>Feature Engineering</h2>
-    <p><strong>Location and Demographics:</strong><br>
-    Used K Means Clustering to derive location information from the customer latitude and longitude.</p>
+    <p><strong>Location and Demographics:</strong><br> Used K Means Clustering to derive location information from the customer latitude and longitude.</p>
     <img src="{{ url_for('static', filename='telecom-customer-churn/lat-long-clusters.png') }}" alt="Lat Long Clusters" class="project-image">
 
     <h2>Exploratory Data Analysis</h2>
@@ -32,7 +31,7 @@
     <img src="{{ url_for('static', filename='telecom-customer-churn/customer-status.png') }}" alt="Customer Status" class="project-image">
     <p>Service experience and financial factors are key determinants of churn decisions, with demographics like age and gender having minimal impact.</p>
     <img src="{{ url_for('static', filename='telecom-customer-churn/churn-reasons.png') }}" alt="Churn Reasons" class="project-image">
-    <p>Long term contracts have a significantly lower churn rate than monthly contract.</p>
+    <p>Long term contracts have a significantly lower churn rate than monthly contracts.</p>
     <img src="{{ url_for('static', filename='telecom-customer-churn/contract.png') }}" alt="Contract" class="project-image">
     <p>Elevated monthly charges significantly contribute to higher churn rates, underscoring the need for competitive and flexible pricing strategies.</p>
     <img src="{{ url_for('static', filename='telecom-customer-churn/monthly-charges.png') }}" alt="Monthly Charges" class="project-image">
@@ -53,10 +52,10 @@
     <p>While both Random Forest and SVM demonstrated top performance, the choice of the best model depends on business needs. The unbalanced dataset yielded the highest accuracy, yet balanced datasets improved the prediction of churned customers. This trade-off suggests that businesses must decide between models based on their intervention strategies and the costs associated with incorrectly predicting churn.</p>
 
     <h2>Conclusion</h2>
-    <p>The analysis revealed that service quality, pricing strategies, and customer engagement are key attributes in predicting churn, while demographic factors like age and gender are less significant.</p>
-    <p>Utilizing Logistic Regression, Random Forest Classification, and Support Vector Machine, the study achieved high accuracy in identifying potential churners.</p>
-    <p>These findings highlight the potential for telecom companies to adopt data-driven strategies that combine competitive pricing with exceptional service delivery and long-term customer engagement.</p>
-    <p>This study provides a practical guide for telecom providers to reduce churn rates and enhance customer loyalty through predictive analytics.</p>
+    <p>The analysis revealed that service quality, pricing strategies, and customer engagement are key attributes in predicting churn, while demographic factors like age and gender are less significant.
+        Utilizing Logistic Regression, Random Forest Classification, and Support Vector Machine, the study achieved high accuracy in identifying potential churners.
+        These findings highlight the potential for telecom companies to adopt data-driven strategies that combine competitive pricing with exceptional service delivery and long-term customer engagement.
+        This study provides a practical guide for telecom providers to reduce churn rates and enhance customer loyalty through predictive analytics.</p>
 
     <h2>How to Use</h2>
     <p>To replicate this project, follow these steps:</p>
