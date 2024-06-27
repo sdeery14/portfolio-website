@@ -75,7 +75,7 @@ button:hover, .project-link:hover {
     background-color: #0056b3;
 }
 
-/* Project Styles */
+/* Project List Container */
 .project-list {
     display: flex;
     flex-wrap: wrap;
@@ -83,28 +83,56 @@ button:hover, .project-link:hover {
     justify-content: center;
 }
 
+/* Project Card Styles */
 .project {
     background-color: #FFFFFF; /* White */
     border: 1px solid #B0BEC5; /* Cool Gray */
-    border-radius: 8px;
-    padding: 1rem;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    border-radius: 8px; /* Rounded corners */
+    padding: 1.5rem; /* Increased padding for better spacing */
+    width: 300px; /* Fixed width */
+    text-align: center; /* Center text */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+    margin-bottom: 2rem; /* Margin at the bottom */
 }
 
 .project:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px); /* Slight lift on hover */
 }
 
 .project h2 {
-    margin-top: 0;
+    font-size: 1.75rem; /* Larger font size for the title */
+    color: #0A3D62; /* Navy Blue */
+    margin-bottom: 1rem; /* Space below the title */
 }
 
-.project-description {
+.project-tools,
+.project-models {
+    font-size: 1rem; /* Standard font size for text */
     color: #555555; /* Dark Gray */
+    margin-bottom: 1rem; /* Space below paragraphs */
 }
+
+.project-buttons {
+    display: flex; /* Flexbox for buttons */
+    justify-content: center; /* Center buttons horizontally */
+    gap: 1rem; /* Space between buttons */
+}
+
+.project-buttons a {
+    background-color: #3D9BF0; /* Sky Blue */
+    color: #FFFFFF; /* White text */
+    padding: 0.5rem 1rem; /* Padding inside buttons */
+    border-radius: 4px; /* Rounded corners */
+    text-decoration: none; /* No underline */
+    font-size: 1rem; /* Standard font size */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.project-buttons a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
 
 /* About Me Section Styles */
 .about-me {
