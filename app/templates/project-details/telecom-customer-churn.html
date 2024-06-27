@@ -27,8 +27,6 @@
     Used K Means Clustering to derive location information from the customer latitude and longitude.</p>
     <img src="{{ url_for('static', filename='telecom-customer-churn/lat-long-clusters.png') }}" alt="Lat Long Clusters" class="project-image">
 
-
-
     <h2>Exploratory Data Analysis</h2>
     <p>Approximately 26.5% of customers churned in Q2.</p>
     <img src="{{ url_for('static', filename='telecom-customer-churn/customer-status.png') }}" alt="Customer Status" class="project-image">
@@ -64,7 +62,14 @@
     <p>To replicate this project, follow these steps:</p>
     <ol>
         <li>Clone the repository to Google Drive: <code>git clone https://github.com/sdeery14/telecom-customer-churn.git</code></li>
-        <li>Open the files 'Deery_EDA.ipynb' and 'Deery_Modeling.ipynb' in Google Colab.</li>
+        <li>Open the files 'telecom-customer-churn-eda.ipynb' and 'telecom-customer-churn-modeling.ipynb' in Google Colab.</li>
+        <li>Update the urls for the data files to the cloned repository if needed.</li>
+        <pre><code>
+# data
+customer_df = pd.read_csv('gdrive/My Drive/telecom-customer-churn/data/telecom_customer_churn.csv')
+pop_df = pd.read_csv('gdrive/My Drive/telecom-customer-churn/data/telecom_zipcode_population.csv')
+data_dict = pd.read_csv('gdrive/My Drive/telecom-customer-churn/data/telecom_data_dictionary.csv', encoding='latin1')
+        </code></pre>
         <li>Run the notebooks to see the analysis and modeling in action.</li>
     </ol>
 

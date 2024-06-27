@@ -1,50 +1,81 @@
-/* Global Styles */
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* Ensure the body and html take full height */
+/* Global Styles */
 html, body {
     height: 100%;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    color: #333333;
 }
 
 /* Flexbox layout for the wrapper to push the footer down */
 .wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;  /* Full height of the viewport */
-}
-
-body {
-    font-family: Arial, sans-serif;
-    padding: 0;
-    background-color: #f0f0f0;
+    min-height: 100vh; /* Full height of the viewport */
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #0A3D62; /* Navy Blue */
+    color: #FFFFFF; /* White */
     padding: 1rem;
     text-align: center;
 }
 
 nav a {
-    color: #fff;
+    color: #FFFFFF; /* White */
     margin: 0 1rem;
     text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #FF6F00; /* Bright Orange */
 }
 
 /* Main content should take remaining space */
 main {
-    flex: 1;  /* Take up all the space not used by header and footer */
+    flex: 1; /* Take up all the space not used by header and footer */
     padding: 2rem;
 }
 
-/* Index Page Styles */
-main p {
-    color: #555;
-    font-size: 1.2rem;
+/* Typography */
+h1, h2, h3 {
+    color: #0A3D62; /* Navy Blue */
 }
 
-/* Projects Page Styles */
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+/* Button Styles */
+button, .project-link {
+    background-color: #3D9BF0; /* Sky Blue */
+    color: #FFFFFF; /* White */
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover, .project-link:hover {
+    background-color: #0056b3;
+}
+
+/* Project Styles */
 .project-list {
     display: flex;
     flex-wrap: wrap;
@@ -53,13 +84,18 @@ main p {
 }
 
 .project {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #FFFFFF; /* White */
+    border: 1px solid #B0BEC5; /* Cool Gray */
     border-radius: 8px;
     padding: 1rem;
     width: 300px;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-10px);
 }
 
 .project h2 {
@@ -67,26 +103,7 @@ main p {
 }
 
 .project-description {
-    color: #555;
-}
-
-.project-link {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    color: #fff;
-    background-color: #007bff;
-    border-radius: 4px;
-    text-decoration: none;
-}
-
-.project-link:hover {
-    background-color: #0056b3;
-}
-
-.project-image {
-    width: 80%; /* or any other size you prefer */
-    height: auto; /* ensures the aspect ratio is maintained */
+    color: #555555; /* Dark Gray */
 }
 
 /* About Me Section Styles */
@@ -97,7 +114,7 @@ main p {
     text-align: left;
     margin: 2rem auto;
     max-width: 800px;
-    background-color: #fff;
+    background-color: #FFFFFF; /* White */
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -108,7 +125,7 @@ main p {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #ddd;
+    border: 2px solid #B0BEC5; /* Cool Gray */
     margin-bottom: 1rem;
 }
 
@@ -116,15 +133,16 @@ main p {
     margin-top: 0;
     margin-bottom: 1rem;
     font-size: 1.5rem;
-    color: #333;
+    color: #0A3D62; /* Navy Blue */
     text-align: center;
 }
 
 .bio, .contact {
-    color: #555;
+    color: #555555; /* Dark Gray */
     margin-bottom: 1rem;
 }
 
+/* Social Icons */
 .social-icons {
     display: flex;
     gap: 1rem;
@@ -135,10 +153,9 @@ main p {
 .social-link {
     display: inline-block;
     margin-top: 1rem;
-    margin-right: 1rem;
     padding: 0.5rem 1rem;
-    color: #fff;
-    background-color: #007bff;
+    color: #FFFFFF; /* White */
+    background-color: #3D9BF0; /* Sky Blue */
     border-radius: 4px;
     text-decoration: none;
     font-size: 0.9rem;
@@ -155,8 +172,8 @@ main p {
 
 /* Footer styles */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #333333; /* Dark Gray */
+    color: #FFFFFF; /* White */
     text-align: center;
     padding: 1rem;
     width: 100%;
