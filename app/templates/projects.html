@@ -8,17 +8,23 @@
 <section class="project-list">
     <article class="project">
         <h2>Topic and Sentiment Classification of News Articles</h2>
-        <p class="project-description">
-            This project focuses on classifying news articles into specific market topics and analyzing their sentiment. The aim is to help investors and companies understand market trends and public sentiment, which are crucial for making informed financial decisions.
-        </p>
-        <a class="project-link" href="{{ url_for('main.financial_news_sentiment') }}">Read More</a>
-        <a class="project-link" href="https://github.com/sdeery14/financial-news-sentiment.git" target="_blank">View on GitHub</a>
+        <div class="project-content">
+            <p class="project-description">
+                This project focuses on classifying news articles into specific market topics and analyzing their sentiment. The aim is to help investors and companies understand market trends and public sentiment, which are crucial for making informed financial decisions.
+            </p>
+        </div>
+        <div class="project-buttons">
+            <a class="project-link" href="{{ url_for('main.financial_news_sentiment') }}">Read More</a>
+            <a class="project-link" href="https://github.com/sdeery14/financial-news-sentiment.git" target="_blank">View on GitHub</a>
+        </div>
     </article>
     
     <article class="project">
         <h2>Predictive Analysis of Customer Churn in the Telecom Sector</h2>
-        <p class="project-tools"><strong>Tools:</strong> Google Colab, Python, Numpy, Pandas, Matplotlib, Seaborn, SciKit-Learn</p>
-        <p class="project-models"><strong>Models:</strong> Logistic Regression, Random Forest Classifier, Support Vector Machine</p>
+        <div class="project-content">
+            <p class="project-tools"><strong>Tools:</strong> Google Colab, Python, Numpy, Pandas, Matplotlib, Seaborn, SciKit-Learn</p>
+            <p class="project-models"><strong>Models:</strong> Logistic Regression, Random Forest Classifier, Support Vector Machine</p>
+        </div>
         <div class="project-buttons">
             <a class="project-link" href="{{ url_for('main.telecom_customer_churn') }}">Read More</a>
             <a class="project-link" href="https://github.com/sdeery14/telecom-customer-churn.git" target="_blank">View on GitHub</a>
@@ -27,12 +33,13 @@
     
     <article class="project">
         <h2>Ski Resort Database System</h2>
-        <p class="project-description">
-            The Ski Resort Management System is designed to manage various operations at a ski resort, including tracking lift tickets, equipment rentals, and skier information. This project demonstrates the design and implementation of a functional database system, showcasing the integration of data analysis, modeling, and SQL scripting.
-        </p>
-        <a class="project-link" href="{{ url_for('main.ski_resort_database') }}">Read More</a>
-        <a class="project-link" href="https://github.com/sdeery14/ski-resort-database.git" target="_blank">View on GitHub</a>
+        <div class="project-content">
+            <p class="project-description"><strong>Tools:</strong> Microsoft SQL Server, Azure Data Studio, Draw.io</p>
+        </div>
+        <div class="project-buttons">
+            <a class="project-link" href="{{ url_for('main.ski_resort_database') }}">Read More</a>
+            <a class="project-link" href="https://github.com/sdeery14/ski-resort-database.git" target="_blank">View on GitHub</a>
+        </div>
     </article>
-
 </section>
 {% endblock %}

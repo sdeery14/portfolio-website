@@ -85,6 +85,9 @@ button:hover, .project-link:hover {
 
 /* Project Card Styles */
 .project {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: #FFFFFF; /* White */
     border: 1px solid #B0BEC5; /* Cool Gray */
     border-radius: 8px; /* Rounded corners */
@@ -104,6 +107,10 @@ button:hover, .project-link:hover {
     font-size: 1.75rem; /* Larger font size for the title */
     color: #0A3D62; /* Navy Blue */
     margin-bottom: 1rem; /* Space below the title */
+}
+
+.project-content {
+    flex: 1;
 }
 
 .project-tools,
