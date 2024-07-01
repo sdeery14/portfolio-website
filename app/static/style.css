@@ -24,15 +24,62 @@ header {
     text-align: center;
 }
 
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 nav a {
     color: #FFFFFF; /* White */
-    margin: 0 1rem;
+    margin: 0.5rem;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 nav a:hover {
     color: #FF6F00; /* Bright Orange */
+}
+
+.nav-links,
+.social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: #FFFFFF; 
+    background-color: #3D9BF0;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.social-link i {
+    margin-right: 0.5rem;
+}
+
+.social-link:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+    
+    .social-link {
+        flex: 1 1 auto;
+        margin: 0.5rem 0;
+        text-align: center;
+    }
 }
 
 /* Main content should take remaining space */
