@@ -28,6 +28,7 @@ header {
 
 .branding h1 {
     margin: 0;
+    margin-bottom: 0.5rem;
     font-size: 2rem;
     word-wrap: break-word; /* Allow title to wrap */
 }
@@ -49,8 +50,7 @@ nav a:hover {
     color: #FF6F00; /* Bright Orange */
 }
 
-.nav-links,
-.social-icons {
+.nav-links, .social-icons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -234,12 +234,6 @@ button:hover, .project-link:hover {
 }
 
 /* Social Icons */
-.social-icons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 1rem;
-}
 
 .social-link {
     display: inline-block;
