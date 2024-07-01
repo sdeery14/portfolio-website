@@ -6,148 +6,129 @@
 
 {% block content %}
 <section class="project-detail">
-    <h1>Topic and Sentiment Classification of News Articles</h1>
+    <h1>Financial News Sentiment Analysis</h1>
     
-    <h2>Overview</h2>
-    <p>This project focuses on classifying news articles into specific market topics and analyzing their sentiment. The aim is to help investors and companies understand market trends and public sentiment, which are crucial for making informed financial decisions.</p>
+    <h2 id="introduction">Introduction</h2>
+    <p>Financial companies and investors leverage stock analysis to navigate through the ever-changing stock market. This project focuses on classifying news articles by market topic and predicting the sentiment of news articles by topic. This analysis is a part of a larger system aimed at predicting stock prices based on news sentiment combined with other analyses.</p>
     
-    <h2>Introduction</h2>
-    <p>Financial companies and investors rely heavily on stock analysis to make informed decisions. News articles play a significant role in shaping these decisions by providing insights into market events, company performances, and economic changes. This project aims to classify news articles into five market topics: Agriculture, Housing, Stocks, Manufacturing, and Technology. Additionally, it predicts the sentiment (Positive, Negative, Neutral) of these articles.</p>
-    
-    <h2>Data Collection</h2>
-    <h3>News Articles Labeled by Topic</h3>
+    <h2>Tools</h2>
+    <p>VSCode, Python, Numpy, Pandas, Matplotlib, Seaborn, SciKit-Learn, pyLDAvis</p>
+
+    <h2 id="data-collection">Data Collection</h2>
+    <h3 id="topic-classification-data">Topic Classification Data</h3>
     <ul>
         <li><strong>Source:</strong> News API (newsapi.org)</li>
         <li><strong>Topics:</strong> Agriculture, Housing, Stocks, Manufacturing, Technology</li>
-        <li><strong>Collection Period:</strong> 8/26/2023 to 9/14/2023</li>
-        <li><strong>Total Articles:</strong> 9328 after cleaning and removing duplicates</li>
+        <li><strong>Period:</strong> 8/26/2023 to 9/14/2023</li>
+        <li><strong>Size:</strong> 9,328 articles (after cleaning)</li>
     </ul>
-    <h3>News Articles Labeled by Sentiment</h3>
+    <img src="{{ url_for('static', filename='financial-news-sentiment/topic-distribution.png') }}" alt="Article Distribution by Topic" class="project-image">
+    
+    <h3 id="sentiment-analysis-data">Sentiment Analysis Data</h3>
     <ul>
-        <li><strong>Source:</strong> Kaggle (Financial Sentiment Analysis dataset)</li>
-        <li><strong>Sentiment Labels:</strong> Positive, Negative, Neutral</li>
-        <li><strong>Total Sentences:</strong> 5836 after cleaning and removing duplicates</li>
+        <li><strong>Source:</strong> Kaggle (Financial Sentiment Analysis)</li>
+        <li><strong>Size:</strong> 5,836 sentences (after cleaning)</li>
+    </ul>
+    <img src="{{ url_for('static', filename='financial-news-sentiment/sentiment-distribution.png') }}" alt="Sentiment Distribution" class="project-image">
+    
+    <h2 id="data-exploration">Data Exploration</h2>
+    <p>Visualizations of the data reveal important insights:</p>
+    <h3>Word Clouds:</h3>
+    <img src="{{ url_for('static', filename='financial-news-sentiment/topics-wordcloud.png') }}" alt="Overall Word Cloud" class="project-image">
+    <img src="{{ url_for('static', filename='financial-news-sentiment/agriculture-wordcloud.png') }}" alt="Agriculture Word Cloud" class="project-image">
+    <img src="{{ url_for('static', filename='financial-news-sentiment/housing-wordcloud.png') }}" alt="Housing Word Cloud" class="project-image">
+    <img src="{{ url_for('static', filename='financial-news-sentiment/manufacturing-wordcloud.png') }}" alt="Manufacturing Word Cloud" class="project-image">
+    <img src="{{ url_for('static', filename='financial-news-sentiment/stocks-wordcloud.png') }}" alt="Stocks Word Cloud" class="project-image">
+    <img src="{{ url_for('static', filename='financial-news-sentiment/tech-wordcloud.png') }}" alt="Technology Word Cloud" class="project-image">
+    
+    <h2 id="data-preprocessing">Data Preprocessing</h2>
+    <h3 id="vectorization">Vectorization</h3>
+    <p>Vectorization converts text data into numerical format for analysis. This project uses two methods:</p>
+    <ul>
+        <li><strong>CountVectorizer:</strong> Frequency count of each word</li>
+        <li><strong>TfidfVectorizer:</strong> Term frequency-inverse document frequency</li>
     </ul>
     
-    <h2>Libraries Used</h2>
+    <h4 id="vectorization-for-topic-analysis">Vectorization for Topic Analysis</h4>
     <ul>
-        <li><code>pandas</code>: For data manipulation and organization.</li>
-        <li><code>numpy</code>: For numerical operations.</li>
-        <li><code>sklearn</code>: For machine learning models and vectorization.</li>
-        <li><code>matplotlib.pyplot</code>, <code>seaborn</code>, <code>wordcloud</code>: For data visualization.</li>
-        <li><code>newsapi</code>: To fetch news articles from News API.</li>
+        <li>Lowercase conversion</li>
+        <li>Max features set to 1500</li>
+        <li>Removal of English stop words and topic words</li>
     </ul>
     
-    <h2>Data Preprocessing</h2>
-    <h3>Cleaning and Preparation</h3>
+    <h4 id="vectorization-for-sentiment-analysis">Vectorization for Sentiment Analysis</h4>
     <ul>
-        <li><strong>Duplicates Removal:</strong> Eliminated duplicate rows and rows with missing data.</li>
-        <li><strong>Balancing Data:</strong> Created a balanced dataset for sentiment analysis to avoid bias.</li>
+        <li>Lowercase conversion</li>
+        <li>Max features set to 1500</li>
+        <li>Removal of English stop words</li>
     </ul>
     
-    <h2>Vectorization</h2>
-    <h3>Topic Analysis</h3>
+    <h2 id="models">Models</h2>
+    <h3 id="naive-bayes">Naïve Bayes</h3>
+    <p>Naïve Bayes uses Bayes' theorem to classify text data based on word frequencies.</p>
+    <h4 id="topic-classification-naive-bayes">Topic Classification: Naïve Bayes</h4>
     <ul>
-        <li><strong>Vectorizer:</strong> CountVectorizer</li>
-        <li><strong>Parameters:</strong>
-            <ul>
-                <li>Lowercase conversion</li>
-                <li>Maximum features set to 1500</li>
-                <li>Removed English stopwords and specific topic words</li>
-            </ul>
-        </li>
-        <li><strong>Word Clouds:</strong> Generated to visualize common words in overall and topic-specific articles.</li>
+        <li>Best precision: Stocks (74%)</li>
+        <li>Best recall: Stocks (76%)</li>
     </ul>
-    <h3>Sentiment Analysis</h3>
+    <img src="{{ url_for('static', filename='financial-news-sentiment/topics-nb-confusion-matrix.png') }}" alt="Topic Classification Naive Bayes Confusion Matrix" class="project-image">
+    <p>The Naive Bayes model also returned log probabilities of each word for each label. The table below shows the top 10 most important words in each topic for the prediction.</p>
+    <img src="{{ url_for('static', filename='financial-news-sentiment/topics-nb-topwords.png') }}" alt="Topic Classification Important Words" class="project-image">
+    
+    <h3 id="support-vector-machine">Support Vector Machine</h3>
+    <p>SVM finds a hyperplane that separates data into different classes.</p>
+    <h4 id="sentiment-classification-svm">Sentiment Classification: SVM</h4>
     <ul>
-        <li><strong>Vectorizer:</strong> TfidfVectorizer</li>
-        <li><strong>Parameters:</strong>
-            <ul>
-                <li>Lowercase conversion</li>
-                <li>Maximum features set to 1500</li>
-                <li>Removed English stopwords</li>
-            </ul>
-        </li>
-        <li><strong>Word Clouds:</strong> Generated to visualize common words in overall and sentiment-specific articles.</li>
+        <li>Best precision (unbalanced): Neutral (72%)</li>
+        <li>Best recall (unbalanced): Neutral (90%)</li>
+        <li>Best precision (balanced): Negative (63%)</li>
+        <li>Best recall (balanced): Negative (67%)</li>
+    </ul>
+    <img src="{{ url_for('static', filename='financial-news-sentiment/sentiment-svm-confusion-matrix.png') }}" alt="Sentiment SVM Confusion Matrix" class="project-image">
+    <h4>Sentiment Predictions by Topic</h4>
+    <img src="{{ url_for('static', filename='financial-news-sentiment/topic-distribution.png') }}" alt="Sentiment Predictions by Topic" class="project-image">
+    
+    <h3 id="decision-tree">Decision Tree</h3>
+    <p>Decision Trees use decision rules organized into a tree structure for classification.</p>
+    <h4 id="topic-classification-decision-tree">Topic Classification: Decision Tree</h4>
+    <ul>
+        <li>Accuracy: 35%</li>
     </ul>
     
-    <h2>Modeling</h2>
-    <h3>Algorithms Used</h3>
+    <h3 id="latent-dirichlet-allocation-lda">Latent Dirichlet Allocation (LDA)</h3>
+    <p>LDA uses Bayesian probabilities to discover hidden topics in text data.</p>
+    <h4 id="topic-classification-lda">Topic Classification: LDA</h4>
+    <ul>
+        <li>Number of topics: 5 distinct groups</li>
+    </ul>
+    <img src="{{ url_for('static', filename='financial-news-sentiment/topics-lda.png') }}" alt="LDA Clustering of Topics" class="project-image">
+    
+    <h2 id="conclusion">Conclusion</h2>
+    <p>Traders on Wall Street continuously strive to anticipate changes in stock prices. While traditional financial forecasting methods based on historical performance are useful, they often fail to account for significant unfolding events that can drastically alter economic trajectories. To bridge this gap, investors rely on news to gauge market sentiment and identify emerging trends. Financial firms employ analysts to implement sophisticated systems that can process and analyze news data. This process begins with topic classification, where news articles are categorized by subject matter, followed by sentiment analysis, which determines whether the content is positive, negative, or neutral.</p>
+    <p>The project aimed to develop a system for topic classification and sentiment analysis of financial news. The topic classifier achieved a 60% accuracy rate, which, despite some overlap among topics, is a promising result given the complexity of the task. Importantly, the classifier showed no significant bias towards any single topic. The sentiment classifier reached a 64% accuracy rate, effectively balancing between predicting positive, negative, and neutral sentiments. While another model exhibited higher overall accuracy, it failed to adequately predict negative sentiments, reducing its practical utility. With further improvements to accuracy, these models can lay the groundwork for a comprehensive system that can integrate news sentiment analysis with traditional financial data to enhance stock price predictions.</p>
+    
+    <h2 id="requirements">Requirements</h2>
+    <ul>
+        <li>Python 3.10.11</li>
+        <li>Scikit-Learn</li>
+        <li>Pandas</li>
+        <li>Numpy</li>
+    </ul>
+    
+    <h2 id="usage">Usage</h2>
     <ol>
-        <li><strong>Naive Bayes:</strong>
-            <ul>
-                <li>Assumes independence among words.</li>
-                <li>Uses word frequencies for classification.</li>
-                <li>Implemented with <code>MultinomialNB</code> from Scikit-Learn.</li>
-            </ul>
-        </li>
-        <li><strong>Support Vector Machine (SVM):</strong>
-            <ul>
-                <li>Finds the optimal hyperplane for classification.</li>
-                <li>Uses linear kernel for text data.</li>
-                <li>Implemented with <code>SVC</code> from Scikit-Learn.</li>
-            </ul>
-        </li>
-        <li><strong>Decision Tree:</strong>
-            <ul>
-                <li>Non-linear model that splits data based on feature values.</li>
-                <li>Visualizes decision-making process.</li>
-                <li>Implemented with <code>DecisionTreeClassifier</code> from Scikit-Learn.</li>
-            </ul>
-        </li>
-        <li><strong>Latent Dirichlet Allocation (LDA):</strong>
-            <ul>
-                <li>Identifies hidden topics in text.</li>
-                <li>Assumes documents are mixtures of topics and topics are mixtures of words.</li>
-                <li>Implemented with <code>LatentDirichletAllocation</code> from Scikit-Learn.</li>
-            </ul>
-        </li>
+        <li>Clone the repository: <code>git clone &lt;repository-url&gt;</code></li>
+        <li>Navigate to the project directory: <code>cd financial-news-sentiment</code></li>
+        <li>Install requirements: <code>pip install -r requirements.txt</code></li>
+        <li>Run the topic classification: <code>python src/topic-classification.py</code></li>
+        <li>Run the sentiment analysis: <code>python src/sentiment-analysis.py</code></li>
     </ol>
     
-    <h3>Model Tuning and Evaluation</h3>
+    <h2 id="references">References</h2>
     <ul>
-        <li><strong>Cross-Validation:</strong> 3-fold cross-validation for performance evaluation.</li>
-        <li><strong>Confusion Matrix:</strong> To visualize model predictions.</li>
-        <li><strong>Accuracy Metrics:</strong> Used to compare model performance.</li>
+        <li>Weiss, S. M., Indurkhya, N., & Zhang, T. (2015). Fundamentals of Predictive Text Mining.</li>
+        <li>Blei, D. M., Ng, A. Y., & Jordan, M. I. (2003). Latent Dirichlet Allocation.</li>
+        <li>Ohana, B., & Tierney, B. (2009). Sentiment Classification of Reviews using SVMs and LSA.</li>
     </ul>
-    
-    <h2>Results</h2>
-    <h3>Topic Classification</h3>
-    <p><strong>Best Model:</strong> Naive Bayes with Count Vectorization</p>
-    <ul>
-        <li><strong>Accuracy:</strong> Highest cross-validation and test accuracy.</li>
-        <li><strong>Confusion Matrix:</strong> Stocks had the highest precision and recall.</li>
-        <li><strong>Important Words:</strong> Key words influencing topic predictions were identified.</li>
-    </ul>
-    <h3>Sentiment Classification</h3>
-    <p><strong>Best Model:</strong> Support Vector Machine with Tfidf Vectorization on Unbalanced Data</p>
-    <ul>
-        <li><strong>Accuracy:</strong> Best performance on unbalanced data.</li>
-        <li><strong>Confusion Matrix:</strong> High precision and recall for neutral sentiment.</li>
-        <li><strong>Balanced Data Performance:</strong> Improved negative sentiment prediction.</li>
-    </ul>
-    
-    <h2>Conclusion</h2>
-    <p>This analysis successfully created models to classify news articles by topic and predict their sentiment. The models can be integrated into larger systems to provide valuable insights for financial analysis and decision-making.</p>
-    
-    <h2>Authors</h2>
-    <ul>
-        <li><strong>Evan Helig</strong> - eahelig@syr.edu</li>
-        <li><strong>Dimetrius Johnson</strong> - djohns66@syr.edu</li>
-        <li><strong>Sean Deery</strong> - sdeery@syr.edu</li>
-    </ul>
-    
-    <h2>Usage</h2>
-    <p>To run this project locally:</p>
-    <ol>
-        <li>Clone the repository: <code>git clone <repository-url></code></li>
-        <li>Install required libraries</li>
-        <li>Run the python files</li>
-    </ol>
-    
-    <h2>License</h2>
-    <p>This project is licensed under the MIT License - see the <a href="LICENSE" target="_blank">LICENSE</a> file for details.</p>
-    
-    <p><a class="project-link" href="https://github.com/sdeery14/financial-news-sentiment" target="_blank">View on GitHub</a></p>
 </section>
 {% endblock %}
