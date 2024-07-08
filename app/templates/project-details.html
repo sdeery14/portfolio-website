@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ project.description }}{% endblock %}
+
+{% block header_title %}{{ project.description }}{% endblock %}
+
+{% block content %}
+<section class="project-detail">
+    <h1>{{ project.description }}</h1>
+    <p><a class="project-link" href="{{ project.github }}" target="_blank">View on GitHub</a></p>
+    <!-- Include the specific project content -->
+    {% include 'project-details/' + project.template %}
+    <p><a class="project-link" href="{{ project.github }}" target="_blank">View on GitHub</a></p>
+</section>
+{% endblock %}

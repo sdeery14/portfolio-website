@@ -9,9 +9,9 @@
                 <div class="dropdown">
                     <a href="{{ url_for('main.projects') }}" class="nav-link {% if active_page == 'projects' %}active{% endif %}">Projects</a>
                     <div class="dropdown-content">
-                        <a href="{{ url_for('main.telecom_customer_churn') }}" class="{% if active_project == 'telecom-customer-churn' %}active{% endif %}">Telecom Customer Churn</a>
-                        <a href="{{ url_for('main.financial_news_sentiment') }}" class="{% if active_project == 'financial-news-sentiment' %}active{% endif %}">Financial News Sentiment</a>
-                        <a href="{{ url_for('main.ski_resort_database') }}" class="{% if active_project == 'ski-resort-database' %}active{% endif %}">Ski Resort Database</a>
+                        {% for project in projects %}
+                        <a href="{{ url_for(project.endpoint, **project.params) }}" class="{% if active_project == project.params['project_url'] %}active{% endif %}">{{ project.name }}</a>
+                        {% endfor %}
                     </div>
                 </div>
                 <a href="{{ url_for('main.about') }}" class="nav-link {% if active_page == 'about' %}active{% endif %}">About</a>

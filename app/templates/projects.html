@@ -6,39 +6,20 @@
 
 {% block content %}
 <section class="project-list">
+    {% for project in projects %}
     <article class="project">
-        <h2>Topic and Sentiment Classification of News Articles</h2>
+        <h2>{{ project.description }}</h2>
         <div class="project-content">
-            <p class="project-tools"><strong>Tools:</strong> VSCode, Python, Numpy, Pandas, Matplotlib, Seaborn, SciKit-Learn, pyLDAvis</p>
-            <p class="project-models"><strong>Models:</strong> Decision Tree, Naive Bayes, Support Vector Machine</p>
+            <p class="project-tools"><strong>Tools:</strong> {{ project.tools }}</p>
+            {% if project.models %}
+            <p class="project-models"><strong>Models:</strong> {{ project.models }}</p>
+            {% endif %}
         </div>
         <div class="project-buttons">
-            <a class="project-link" href="{{ url_for('main.financial_news_sentiment') }}">Read More</a>
-            <a class="project-link" href="https://github.com/sdeery14/financial-news-sentiment.git" target="_blank">View on GitHub</a>
+            <a class="project-link" href="{{ url_for(project.endpoint, **project.params) }}">Read More</a>
+            <a class="project-link" href="{{ project.github }}" target="_blank">View on GitHub</a>
         </div>
     </article>
-    
-    <article class="project">
-        <h2>Predictive Analysis of Customer Churn in the Telecom Sector</h2>
-        <div class="project-content">
-            <p class="project-tools"><strong>Tools:</strong> Google Colab, Python, Numpy, Pandas, Matplotlib, Seaborn, SciKit-Learn</p>
-            <p class="project-models"><strong>Models:</strong> Logistic Regression, Random Forest Classifier, Support Vector Machine</p>
-        </div>
-        <div class="project-buttons">
-            <a class="project-link" href="{{ url_for('main.telecom_customer_churn') }}">Read More</a>
-            <a class="project-link" href="https://github.com/sdeery14/telecom-customer-churn.git" target="_blank">View on GitHub</a>
-        </div>
-    </article>
-    
-    <article class="project">
-        <h2>Ski Resort Database System</h2>
-        <div class="project-content">
-            <p class="project-description"><strong>Tools:</strong> Microsoft SQL Server, Azure Data Studio, Draw.io</p>
-        </div>
-        <div class="project-buttons">
-            <a class="project-link" href="{{ url_for('main.ski_resort_database') }}">Read More</a>
-            <a class="project-link" href="https://github.com/sdeery14/ski-resort-database.git" target="_blank">View on GitHub</a>
-        </div>
-    </article>
+    {% endfor %}
 </section>
 {% endblock %}

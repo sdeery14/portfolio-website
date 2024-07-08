@@ -2,30 +2,54 @@ from flask import Blueprint, render_template, url_for
 
 main = Blueprint('main', __name__)
 
+# Centralized project data
+projects_data = [
+    {
+        'name': 'Telecom Customer Churn',
+        'endpoint': 'main.project_details',
+        'params': {'project_url': 'telecom_customer_churn'},
+        'tools': 'Google Colab, Python, Numpy, Pandas, Matplotlib, Seaborn, SciKit-Learn',
+        'models': 'Logistic Regression, Random Forest Classifier, Support Vector Machine',
+        'github': 'https://github.com/sdeery14/telecom-customer-churn.git',
+        'description': 'Predictive Analysis of Customer Churn in the Telecom Sector',
+        'template': 'telecom-customer-churn.html'
+    },
+    {
+        'name': 'Financial News Sentiment',
+        'endpoint': 'main.project_details',
+        'params': {'project_url': 'financial_news_sentiment'},
+        'tools': 'VSCode, Python, Numpy, Pandas, Matplotlib, Seaborn, SciKit-Learn, pyLDAvis',
+        'models': 'Decision Tree, Naive Bayes, Support Vector Machine',
+        'github': 'https://github.com/sdeery14/financial-news-sentiment.git',
+        'description': 'Topic and Sentiment Classification of News Articles',
+        'template': 'financial-news-sentiment.html'
+    },
+    {
+        'name': 'Ski Resort Database',
+        'endpoint': 'main.project_details',
+        'params': {'project_url': 'ski_resort_database'},
+        'tools': 'Microsoft SQL Server, Azure Data Studio, Draw.io',
+        'models': '',
+        'github': 'https://github.com/sdeery14/ski-resort-database.git',
+        'description': 'Ski Resort Management System',
+        'template': 'ski-resort-database.html'
+    }
+]
+
 @main.route('/')
 def home():
     return render_template('index.html', active_page='home')
 
 @main.route('/projects')
 def projects():
-    project_list = [
-        {'name': 'Telecom Customer Churn', 'url': url_for('main.telecom_customer_churn')},
-        {'name': 'Financial News Sentiment', 'url': url_for('main.financial_news_sentiment')},
-        {'name': 'Ski Resort Database', 'url': url_for('main.ski_resort_database')}
-    ]
-    return render_template('projects.html', projects=project_list, active_page='projects')
+    return render_template('projects.html', projects=projects_data, active_page='projects')
 
-@main.route('/project/telecom-customer-churn')
-def telecom_customer_churn():
-    return render_template('project-details/telecom-customer-churn.html', active_page='projects', active_project='telecom-customer-churn')
-
-@main.route('/project/financial-news-sentiment')
-def financial_news_sentiment():
-    return render_template('project-details/financial-news-sentiment.html', active_page='projects', active_project='financial-news-sentiment')
-
-@main.route('/project/ski-resort-database')
-def ski_resort_database():
-    return render_template('project-details/ski-resort-database.html', active_page='projects', active_project='ski-resort-database')
+@main.route('/projects/<project_url>')
+def project_details(project_url):
+    project = next((proj for proj in projects_data if proj['params']['project_url'] == project_url), None)
+    if project:
+        return render_template('project-details.html', project=project, active_page='projects', active_project=project_url)
+    return render_template('404.html'), 404
 
 @main.route('/about')
 def about():
