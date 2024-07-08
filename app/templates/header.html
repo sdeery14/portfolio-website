@@ -1,19 +1,27 @@
 <header>
-    <div class="branding">
-        <h1 style="color: #FFFFFF;"><span class="site-title">{% block header_title %}My Portfolio{% endblock %}</span> - Sean Deery</h1>
-    </div>
-    <nav>
-        <div class="nav-links">
-            <a href="{{ url_for('main.home') }}">Home</a>
-            <a href="{{ url_for('main.projects') }}">Projects</a>
-            <a href="{{ url_for('main.about') }}">About</a>
+    <div class="header-container">
+        <div class="branding">
+            <h1 style="color: #FFFFFF;"><span class="site-title">My Portfolio</span> - Sean Deery</h1>
         </div>
+        <nav>
+            <div class="nav-links">
+                <a href="{{ url_for('main.home') }}" class="nav-link {% if active_page == 'home' %}active{% endif %}">Home</a>
+                <div class="dropdown">
+                    <a href="{{ url_for('main.projects') }}" class="nav-link {% if active_page == 'projects' %}active{% endif %}">Projects</a>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('main.telecom_customer_churn') }}" class="{% if active_project == 'telecom-customer-churn' %}active{% endif %}">Telecom Customer Churn</a>
+                        <a href="{{ url_for('main.financial_news_sentiment') }}" class="{% if active_project == 'financial-news-sentiment' %}active{% endif %}">Financial News Sentiment</a>
+                        <a href="{{ url_for('main.ski_resort_database') }}" class="{% if active_project == 'ski-resort-database' %}active{% endif %}">Ski Resort Database</a>
+                    </div>
+                </div>
+                <a href="{{ url_for('main.about') }}" class="nav-link {% if active_page == 'about' %}active{% endif %}">About</a>
+            </div>
+        </nav>
         <div class="social-icons">
             <a href="https://github.com/sdeery14" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i>Github</a>
             <a href="https://www.linkedin.com/in/sean-m-deery" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i>LinkedIn</a>
             <a href="/static/sean-deery-resume.pdf" target="_blank" class="social-link" title="Resume"><i class="fas fa-file-alt"></i>Resume</a>
             <a href="mailto:sdeery14@gmail.com" class="social-link" title="Email"><i class="fas fa-envelope"></i>Email</a>
         </div>
-    </nav>
+    </div>
 </header>
-

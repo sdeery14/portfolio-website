@@ -18,50 +18,100 @@ html, body {
     min-height: 100vh; /* Full height of the viewport */
 }
 
+/* Header */
 header {
     background-color: #0A3D62; /* Navy Blue */
     color: #FFFFFF; /* White */
     padding: 1rem;
-    text-align: center;
-    overflow: hidden; /* Ensure no overflow */
+    overflow: visible; /* Ensure dropdown is visible */
+    position: relative; /* Ensure header is positioned */
+    z-index: 1000; /* Ensure header is on top */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .branding h1 {
     margin: 0;
-    margin-bottom: 0.5rem;
-    font-size: 2rem;
-    word-wrap: break-word; /* Allow title to wrap */
+    font-size: 1.5rem;
 }
 
 nav {
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
-nav a {
-    color: #FFFFFF; /* White */
-    margin: 0.5rem;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #FF6F00; /* Bright Orange */
-}
-
-.nav-links, .social-icons {
+.nav-links {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-    margin: 0.5rem 0;
+    gap: 1rem;
+}
+
+/* Nav Links */
+.nav-links a,
+.nav-links .dropdown {
+    color: #FFFFFF; /* White */
+    margin: 0 0.5rem;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 4px;
+    position: relative; /* Ensure dropdown positioning */
+}
+
+.nav-links a:hover,
+.nav-links .dropdown:hover .nav-link {
+    background-color: #3D9BF0; /* Sky Blue */
+    color: #FFFFFF; /* White */
+}
+
+.nav-links a.active,
+.nav-links .dropdown.active .nav-link,
+.dropdown-content a.active {
+    background-color: #FF6F00; /* Secondary Color - Bright Orange */
+    color: #FFFFFF; /* White */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #3D9BF0; /* Sky Blue */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1001; /* Ensure dropdown is above other content */
+    top: 100%;
+    left: 0;
+}
+
+.dropdown-content a {
+    color: white; /* White */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
 }
 
 .social-link {
     display: flex;
     align-items: center;
-    margin: 0.5rem;
+    margin: 0;
     padding: 0.5rem 1rem;
     color: #FFFFFF; 
     background-color: #3D9BF0;
@@ -80,16 +130,18 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
-    nav {
+    .header-container {
         flex-direction: column;
+        align-items: center;
     }
-    
-    .social-link {
-        flex: 1 1 auto;
-        margin: 0.5rem 0;
-        text-align: center;
+
+    .nav-links,
+    .social-icons {
+        flex-direction: column;
+        align-items: center;
     }
 }
+
 
 /* Main content should take remaining space */
 main {
@@ -196,7 +248,6 @@ button:hover, .project-link:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-
 /* About Me Section Styles */
 .about-me {
     display: flex;
@@ -234,7 +285,6 @@ button:hover, .project-link:hover {
 }
 
 /* Social Icons */
-
 .social-link {
     display: inline-block;
     margin-top: 1rem;
@@ -254,9 +304,6 @@ button:hover, .project-link:hover {
 .social-link:hover {
     background-color: #0056b3;
 }
-
-
-
 
 /* Project Detail Page Styles */
 .project-detail {
@@ -322,7 +369,6 @@ button:hover, .project-link:hover {
     font-size: 1rem;
 }
 
-
 .project-detail img.project-image {
     width: 100%;
     max-width: 600px;
@@ -331,8 +377,6 @@ button:hover, .project-link:hover {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin: 1rem 0;
 }
-
-
 
 .project-detail a.project-link {
     display: inline-block;
@@ -349,9 +393,6 @@ button:hover, .project-link:hover {
 .project-detail a.project-link:hover {
     background-color: #0056b3;
 }
-
-
-
 
 /* Footer styles */
 footer {
