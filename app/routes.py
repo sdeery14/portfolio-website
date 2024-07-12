@@ -33,6 +33,16 @@ projects_data = [
         'github': 'https://github.com/sdeery14/ski-resort-database.git',
         'description': 'Ski Resort Management System',
         'template': 'ski-resort-database.html'
+    },
+    {
+        'name': 'Email Spam Detection',
+        'endpoint': 'main.project_details',
+        'params': {'project_url': 'spam-classification'},
+        'tools': 'Jupyter Notebook, Python, Numpy, Pandas, Matplotlib, Seaborn, Wordcloud, NLTK, Scikit-Learn',
+        'models': 'Naive Bayes',
+        'github': 'https://github.com/sdeery14/spam-classification.git',
+        'description': 'Spam vs. Ham Email Classification',
+        'template': 'spam-classification.html'
     }
 ]
 
